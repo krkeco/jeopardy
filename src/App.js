@@ -1,23 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
 
+const QCard = ({data}) => {
+  return(
+    <div className='row card'>
+      {data.value}
+    </div>
+  )
+}
+
 function App() {
+  const data = []
+  for (let x = 0; x < 5; x ++){
+    data[x] = []
+    for(let y = 0; y < 5; y++){
+      data[x].push({value: y%5*100+100, question:'Question!', answer:'answer!'})
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+     {data.map(col=>{
+       return(<div className='col'>
+       {col.map((row)=>{
+         return <QCard data={row}/>
+       })}</div>)
+     })}
     </div>
   );
 }
