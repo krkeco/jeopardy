@@ -1,28 +1,33 @@
+import {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {titles, data} from './christmas2021'
 
-const QCard = ({data}) => {
-  return(
-    <div className='row card'>
-      {data.value}
+const QCard = ({data, value}) => {
+  const [showQ, setShowQ] = useState(false)
+  const [showA, setShowA] = useState(false)
+  return(<div>{showQ && <div className='question'>
+    <button onClick={()=>{setShowQ(false)}}>X</button>
+    <button onClick={()=>{setShowA(!showA)}}>answer</button>
+      {data.question}
+      {showA && data.answer}
+    </div>}
+  
+    <div className='row card'
+    onClick={()=>{setShowQ(true)}}>
+      {value}
     </div>
+  </div>
   )
 }
 
 function App() {
-  const data = []
-  for (let x = 0; x < 5; x ++){
-    data[x] = []
-    for(let y = 0; y < 5; y++){
-      data[x].push({value: y%5*100+100, question:'Question!', answer:'answer!'})
-    }
-  }
   return (
     <div className="container">
      {data.map(col=>{
        return(<div className='col'>
-       {col.map((row)=>{
-         return <QCard data={row}/>
+       {col.map((row, index)=>{
+         return <QCard value={index%5*100+100} data={row}/>
        })}</div>)
      })}
     </div>

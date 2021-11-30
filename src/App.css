@@ -12,6 +12,9 @@
 
 }
 .card{
+  display:flex;
+  justify-content: center;
+  align-items: center;
   width:125px;
   height:125px;
   background-color: blue;
@@ -19,5 +22,13 @@
   align-items: center;
   justify-content: center;
   color:white;
-  font-size: 24px;;
+  font-size: 48px;
+}
+.question{
+  width:80%;
+  height:80%;
+  position:absolute;
+  top:0;
+  left:0;
+  background-color: gray;
 }
