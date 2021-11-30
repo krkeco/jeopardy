@@ -3,9 +3,14 @@
   justify-content: center;
   align-items: center;
 }
+.bg-green{
+  background-color: green;
+}
+.bg-red{
+  background-color: red;
+}
 .col{
   flex-direction: column;
-
 }
 .row{
   flex-direction: row;
@@ -17,12 +22,33 @@
   align-items: center;
   width:125px;
   height:125px;
-  background-color: blue;
+  border-radius: 10px;
+  background-color: red;
   margin:10px;
+  
   align-items: center;
   justify-content: center;
-  color:white;
+
+  color:gold;
   font-size: 48px;
+
+  /* transition: width 0.2s, height 0.2s, margin 0.2s; */
+}
+.card:hover{
+  width:135px;
+  height:135px;
+  margin-top:-5px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom: -5px;
+  /* transition: width 0.2s, height 0.2s, margin 0.2s, margin-top 0.2s, margin-bottom 0.2s, margin-left 0.2s, margin-right 0.2s, ; */
+}
+.card-stop{
+  margin:10px;
+}
+.title{
+  font-size: 84;
+  font-weight: 800;
 }
 .question{
   width:80%;
@@ -34,8 +60,36 @@
 }
 .scoretile{
   padding:10px;
-  width:200px;
-  height:100px;
+  margin:10px;
+  width:250px;
+  /* height:100px; */
+  border-radius: 10px;
   background-color: yellow;
+  display: flex;
+  flex-direction: column;
+
+}
+.score-button{
+  width:50px;
+  height:50px;
+  border-radius:25px;
+}
+.score-text{
+  font-size: 72px;
+  color:green
+}
+.scorecard-button{
+  width:20px;
+  height:20px;
+  border-radius: 10px;
+  color:gold;
+  font-size: 18px;
+  font-weight: 800;
+  border-style: none;  
+  background-color: transparent;
+
+}
+.scorecard-button:hover{
+  background-color: gray;
 
 }

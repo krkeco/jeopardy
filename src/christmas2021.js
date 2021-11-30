@@ -1,6 +1,6 @@
 export const titles = [
-    "The Globe",
-    "MODERN CULTURE",
+    "THE GLOBE",
+    "CULTURE",
     "INVENTIONS",
     "MUSIC",
     "KOREAN WAR"

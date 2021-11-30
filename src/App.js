@@ -5,12 +5,19 @@ import {titles, data} from './christmas2021'
 
 const ScoreTile = () =>{
   const [score, setScore] = useState(0)
+  const [teamName, setName] = useState('')
+  const [edit, setEdit] = useState(true)
   return (
     <div className='scoretile'>
-      <input></input>
-      score:{score}
-      <button onClick={()=>setScore(score+100)} >+</button>
-      <button onClick={()=>setScore(score-100)} >-</button>
+      
+      <div>{edit === true ? <input onChange={(e)=>setName(e.target.value)} value={teamName}></input> : <span className='title'>{teamName}</span>}
+      <button className='scorecard-button' onClick={()=>setEdit(!edit)} >=</button>
+      </div>
+      <div className='container'>
+        <button className='score-button bg-green' onClick={()=>setScore(score+100)} >+</button>
+        <button className='score-button bg-red' onClick={()=>setScore(score-100)} >-</button>
+        <span className='score-text'>{score}</span>
+      </div>
     </div>
   )
 }
@@ -18,10 +25,16 @@ const ScoreTile = () =>{
 const ScoreBoard = () => {
   const [teams, setTeams] = useState([1])
   return(<div>
-    <button onClick={()=>setTeams([...teams,1])} >+</button>
-      <button onClick={()=>{
+    <button 
+    className='scorecard-button'
+     onClick={()=>setTeams([...teams,1])} >+</button>
+
+      <button 
+      className='scorecard-button'
+      onClick={()=>{
         const newTeams = teams.slice(0,-1)
         setTeams([...newTeams])}} >-</button>
+
     {teams.map(team => <ScoreTile/>)}
   </div>)
 }
@@ -46,12 +59,15 @@ const QCard = ({data, value}) => {
 
 function App() {
   return (
-    <div className="container">
-     {data.map(col=>{
+    <div className="container bg-green">
+     {data.map((col,ind)=>{
        return(<div className='col'>
+         <div className='card-stop title'>{titles[ind]}</div>
        {col.map((row, index)=>{
          return <QCard value={index%5*100+100} data={row}/>
-       })}</div>)
+       })}
+       <div className='card-stop'></div>
+       </div>)
      })}
      <div className='col'>
        <ScoreBoard/>
