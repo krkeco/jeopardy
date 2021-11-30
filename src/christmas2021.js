@@ -1,16 +1,16 @@
 export const titles = [
-    "THE GLOBE",
+    "NATURE",
     "CULTURE",
-    "INVENTIONS",
+    "INVENT",
     "MUSIC",
-    "KOREAN WAR"
+    "K. WAR"
 ]
 export const data = [
 [
 {
 question:"What is the 7th planet from the Sun?",
 answer: "Uranus",
-kquestrion:"태양에서 7번째 행성은?",
+kquestion:"태양에서 7번째 행성은?",
 kanswer: "천왕성",
 },
 {
@@ -83,28 +83,28 @@ kanswer:"다이아몬드, 사파이어, 에메랄드, 루비"
 {
 question:"Who invented the rabies vaccination? ",
 answer:"Louis Pasteur ",
-question:"누가 광견병 예방 접종을 발명 했습니까? ",
-answer:"루이 파스퇴르",},
+kquestion:"누가 광견병 예방 접종을 발명 했습니까? ",
+kanswer:"루이 파스퇴르",},
 {
 question:"What scientist formulated the Laws of Motion? ",
 answer:"Sir Isaac Newton",
-question:"운동 법칙을 공식화한 과학자는? ",
-answer:"아이작 뉴턴 경",},
+kquestion:"운동 법칙을 공식화한 과학자는? ",
+kanswer:"아이작 뉴턴 경",},
 {
 question:"Who invented the Korean alphabet? ",
 answer:"Sejong, fourth king of the Chosŏn dynasty",
-question:"누가 한글을 발명했습니까? ",
-answer:"조선의 4대 왕 세종",},
+kquestion:"누가 한글을 발명했습니까? ",
+kanswer:"조선의 4대 왕 세종",},
 {
 question:"Who introduced the idea of the ‘assembly line’ thus allowing mass car manufacturing? ",
 answer:"Henry Ford",
-question:"자동차 대량 생산이 가능한 '조립 라인'은 누가 도입했습니까? ",
-answer:"헨리 포드",},
+kquestion:"자동차 대량 생산이 가능한 '조립 라인'은 누가 도입했습니까? ",
+kanswer:"헨리 포드",},
 {
 question:"Who invented the crown bottle or cork caps? ",
 answer:"William Painter n 1892",
-question:"누가 왕관 병이나 코르크 마개를 발명했습니까? ",
-answer:"1892년 윌리엄 페인터",
+kquestion:"누가 왕관 병이나 코르크 마개를 발명했습니까? ",
+kanswer:"1892년 윌리엄 페인터",
 }
 
 ],[
