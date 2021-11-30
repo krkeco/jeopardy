@@ -32,3 +32,10 @@
   left:0;
   background-color: gray;
 }
+.scoretile{
+  padding:10px;
+  width:200px;
+  height:100px;
+  background-color: yellow;
+
+}
