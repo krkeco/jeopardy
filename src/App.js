@@ -51,24 +51,24 @@ const ScoreBoard = () => {
 const QCard = ({data, value}) => {
   const [showQ, setShowQ] = useState(false)
   const [showA, setShowA] = useState(false)
-  return(<div>{showQ && <div className='question'>
-    
-    
-      <div className='question-text'>
-        {data.question}
-        <button onClick={()=>{setShowQ(false); setShowA(false)}}>X</button>
+  const [showCard, setShowCard] = useState(true)
+  return(<div>{showQ && <div className='question bg-maroon'>
+      <div className='close-button-container'>
+        <button className='question-button' onClick={()=>{setShowQ(false); setShowA(false)}}>X</button>
       </div>
-      <div className='question-text'>{data.kquestion}</div>
-      <button onClick={()=>{setShowA(!showA)}}>answer</button>
-      
-      <div className='answer-text'>{showA && data.answer}</div>
-      <div className='answer-text'>{showA && data.kanswer}</div>
+      <div className='question-button'>
+        <div className='question-text'>{data.question}</div>
+        <div className='question-text'>{data.kquestion}</div>      
+        <div className='answer-text'>{showA && data.answer}</div>
+        <div className='answer-text'>{showA && data.kanswer}</div>
+      </div>
+      <button className='question-button' onClick={()=>{setShowA(!showA)}}>answer</button>
     </div>}
   
-    <div className='row card'
-    onClick={()=>{setShowQ(true)}}>
-      {value}
-    </div>
+    <div className='row card bg-red'
+      onClick={()=>{setShowQ(true); setShowCard(false)}}>
+      {showCard && value}
+    </div> 
   </div>
   )
 }
