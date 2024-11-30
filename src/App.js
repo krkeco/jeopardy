@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { data as c2021 } from './christmas2021'
 import { data as c2024 } from './christmas2024'
+import { CiSettings } from "react-icons/ci";
 
 const ScoreTile = () =>{
   const [score, setScore] = useState(0)
@@ -25,10 +26,18 @@ const ScoreTile = () =>{
   )
 }
 
-const ScoreBoard = () => {
+const ScoreBoard = ({ setDataChange }) => {
   const [teams, setTeams] = useState([1])
   const [edit, setEdit] = useState(true)
-  return(<div>
+  const [showSettings, setShowSettings] = useState(false)
+
+  return(<div className='d-flex flex-row'>
+    <CiSettings onClick={()=>setShowSettings(!showSettings)}/>
+    {showSettings && <select id="data-year" name="year" onChange={setDataChange}>
+      <option value='2024'>Christmas 2024</option>
+      <option value='2021'>Christmas 2021</option>
+    </select>}
+
     <button 
       disabled={!edit}
       className='scorecard-button'
@@ -43,7 +52,10 @@ const ScoreBoard = () => {
 
     <button 
       className='scorecard-button'
-      onClick={()=>setEdit(!edit)} >s</button>
+      onClick={()=>{
+        setEdit(!edit);
+        !!edit && setShowSettings(false);
+        }} >s</button>
 
     {teams.map(team => <ScoreTile/>)}
   </div>)
@@ -85,10 +97,10 @@ function App() {
     console.log('krkeco change',e.target.value)
     setData(datum[e.target.value])
   }
-  return (<div className='h100 bg-green'>
-    <div className="container">
+  return (<div className='h100 bg-green-700'>
+    <div className="flex flex-row">
       {data.map((col,ind)=>{
-        return(<div className='col'>
+        return(<div className='d-flex flex-col content-end'>
           <div className='card-stop title'>{col.name}</div>
           {col.questions.map((row, index)=>{
             return <QCard value={index%5*100+100} data={row}/>
@@ -96,12 +108,8 @@ function App() {
           <div className='card-stop'></div>
         </div>)
       })}
-      <div className='col'>
-        <ScoreBoard/>
-        <select id="data-year" name="year" onChange={setDataChange}>
-          <option value='2024'>Christmas 2024</option>
-          <option value='2021'>Christmas 2021</option>
-        </select>
+      <div >
+        <ScoreBoard setDataChange={setDataChange}/>
       </div>
     </div>
   </div>
