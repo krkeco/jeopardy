@@ -1,7 +1,8 @@
 import {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { data } from './christmas2021'
+import { data as c2021 } from './christmas2021'
+import { data as c2024 } from './christmas2024'
 
 const ScoreTile = () =>{
   const [score, setScore] = useState(0)
@@ -74,13 +75,18 @@ const QCard = ({data, value}) => {
 }
 
 function App() {
+  const [data, setData] = useState(c2024)
+
+  const setDataChange = (e) => {
+    const datum = {
+      '2021': c2021,
+      '2024': c2024
+    }
+    console.log('krkeco change',e.target.value)
+    setData(datum[e.target.value])
+  }
   return (<div className='h100 bg-green'>
     <div className="container">
-      <select id="cars" name="cars">
-        <option value="volvo">Christmas 2024</option>
-        <option value="saab">Christmas 2021</option>
-      </select>
-  
       {data.map((col,ind)=>{
         return(<div className='col'>
           <div className='card-stop title'>{col.name}</div>
@@ -92,6 +98,10 @@ function App() {
       })}
       <div className='col'>
         <ScoreBoard/>
+        <select id="data-year" name="year" onChange={setDataChange}>
+          <option value='2024'>Christmas 2024</option>
+          <option value='2021'>Christmas 2021</option>
+        </select>
       </div>
     </div>
   </div>
