@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {titles, data} from './christmas2021'
+import { data } from './christmas2021'
 
 const ScoreTile = () =>{
   const [score, setScore] = useState(0)
@@ -11,7 +11,7 @@ const ScoreTile = () =>{
     <div className='scoretile'>
       
       <div>{edit === true ? <input onChange={(e)=>setName(e.target.value)} value={teamName}></input> : <span className='title'>{teamName}</span>}
-      <button className='scorecard-button' onClick={()=>setEdit(!edit)} >s</button>
+        <button className='scorecard-button' onClick={()=>setEdit(!edit)} >s</button>
       </div>
       <div className='container flex-between'>
         <span className='score-text'>{score}</span>
@@ -29,11 +29,11 @@ const ScoreBoard = () => {
   const [edit, setEdit] = useState(true)
   return(<div>
     <button 
-    disabled={!edit}
-    className='scorecard-button'
-     onClick={()=>setTeams([...teams,1])} >+</button>
+      disabled={!edit}
+      className='scorecard-button'
+      onClick={()=>setTeams([...teams,1])} >+</button>
 
-      <button 
+    <button 
       disabled={!edit}
       className='scorecard-button'
       onClick={()=>{
@@ -41,8 +41,8 @@ const ScoreBoard = () => {
         setTeams([...newTeams])}} >-</button>
 
     <button 
-    className='scorecard-button'
-     onClick={()=>setEdit(!edit)} >s</button>
+      className='scorecard-button'
+      onClick={()=>setEdit(!edit)} >s</button>
 
     {teams.map(team => <ScoreTile/>)}
   </div>)
@@ -53,22 +53,22 @@ const QCard = ({data, value}) => {
   const [showA, setShowA] = useState(false)
   const [showCard, setShowCard] = useState(true)
   return(<div>{showQ && <div className='question bg-maroon'>
-      <div className='close-button-container'>
-        <button className='question-button' onClick={()=>{setShowQ(false); setShowA(false)}}>X</button>
-      </div>
-      <div className='question-button'>
-        <div className='question-text'>{data.question}</div>
-        <div className='question-text'>{data.kquestion}</div>      
-        <div className='answer-text'>{showA && data.answer}</div>
-        <div className='answer-text'>{showA && data.kanswer}</div>
-      </div>
-      <button className='question-button' onClick={()=>{setShowA(!showA)}}>answer</button>
-    </div>}
+    <div className='close-button-container'>
+      <button className='question-button' onClick={()=>{setShowQ(false); setShowA(false)}}>X</button>
+    </div>
+    <div className='question-button'>
+      <div className='question-text'>{data.question}</div>
+      <div className='question-text'>{data.kquestion}</div>      
+      <div className='answer-text'>{showA && data.answer}</div>
+      <div className='answer-text'>{showA && data.kanswer}</div>
+    </div>
+    <button className='question-button' onClick={()=>{setShowA(!showA)}}>answer</button>
+  </div>}
   
-    <div className='row card bg-red'
-      onClick={()=>{setShowQ(true); setShowCard(false)}}>
-      {showCard && value}
-    </div> 
+  <div className='row card bg-red'
+    onClick={()=>{setShowQ(true); setShowCard(false)}}>
+    {showCard && value}
+  </div> 
   </div>
   )
 }
@@ -76,20 +76,25 @@ const QCard = ({data, value}) => {
 function App() {
   return (<div className='h100 bg-green'>
     <div className="container">
-     {data.map((col,ind)=>{
-       return(<div className='col'>
-         <div className='card-stop title'>{col.name}</div>
-       {col.questions.map((row, index)=>{
-         return <QCard value={index%5*100+100} data={row}/>
-       })}
-       <div className='card-stop'></div>
-       </div>)
-     })}
-     <div className='col'>
-       <ScoreBoard/>
-     </div>
+      <select id="cars" name="cars">
+        <option value="volvo">Christmas 2024</option>
+        <option value="saab">Christmas 2021</option>
+      </select>
+  
+      {data.map((col,ind)=>{
+        return(<div className='col'>
+          <div className='card-stop title'>{col.name}</div>
+          {col.questions.map((row, index)=>{
+            return <QCard value={index%5*100+100} data={row}/>
+          })}
+          <div className='card-stop'></div>
+        </div>)
+      })}
+      <div className='col'>
+        <ScoreBoard/>
+      </div>
     </div>
-    </div>
+  </div>
   );
 }
 
