@@ -78,8 +78,8 @@ function App() {
     <div className="container">
      {data.map((col,ind)=>{
        return(<div className='col'>
-         <div className='card-stop title'>{titles[ind]}</div>
-       {col.map((row, index)=>{
+         <div className='card-stop title'>{col.name}</div>
+       {col.questions.map((row, index)=>{
          return <QCard value={index%5*100+100} data={row}/>
        })}
        <div className='card-stop'></div>
