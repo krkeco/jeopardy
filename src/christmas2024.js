@@ -38,7 +38,7 @@ export const data =
        ]
      },
      {
-       "name": "CATEGORY 2. Traditional Korean Foods",
+       "name": "Trad K. Foods",
        "questions": [
          {"value":  100,
            "question": "This fermented vegetable is a staple in Korean holiday meals.",
@@ -73,7 +73,7 @@ export const data =
        ]
      },
      {      
-       "name": "CATEGORY 3.The Birth of Jesus",
+       "name": "The Birth of Jesus",
        "questions": [
          {
            "value":  100,
@@ -109,7 +109,7 @@ export const data =
        ],
      },
      {
-       "name": "CATEGORY 4.Christmas Carols Titles",
+       "name": "Christmas Carols",
        "questions": [
          {"value":  100,
            "question": "The song focuses on the calmness and holiness of the night when Jesus was born.",
@@ -144,7 +144,7 @@ export const data =
        ]
      },
      {
-       "name": "CATEGORY 5. Pop Culture",
+       "name": "Pop Culture",
        "questions": [
          {
            "value": 100,

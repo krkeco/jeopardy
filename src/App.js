@@ -31,32 +31,40 @@ const ScoreBoard = ({ setDataChange }) => {
   const [edit, setEdit] = useState(true)
   const [showSettings, setShowSettings] = useState(false)
 
-  return(<div className='d-flex flex-row'>
-    <CiSettings onClick={()=>setShowSettings(!showSettings)}/>
-    {showSettings && <select id="data-year" name="year" onChange={setDataChange}>
-      <option value='2024'>Christmas 2024</option>
-      <option value='2021'>Christmas 2021</option>
-    </select>}
+  return(<div className='flex flex-col'>
+    <div className='flex flex-row items-center content-center'>
 
     <button 
       disabled={!edit}
-      className='scorecard-button'
-      onClick={()=>setTeams([...teams,1])} >+</button>
+      className='scorecard-button flex flex-row content-center items-center'
+      onClick={()=>setShowSettings(!showSettings)} >
+      <CiSettings size={24} color='yellow' className='' />
+    </button>
+      
+      {showSettings && <select id="data-year" name="year" onChange={setDataChange}>
+        <option value='2024'>Christmas 2024</option>
+        <option value='2021'>Christmas 2021</option>
+      </select>}
 
-    <button 
-      disabled={!edit}
-      className='scorecard-button'
-      onClick={()=>{
-        const newTeams = teams.slice(0,-1)
-        setTeams([...newTeams])}} >-</button>
+      <button 
+        disabled={!edit}
+        className='scorecard-button flex flex-row content-center items-center'
+        onClick={()=>setTeams([...teams,1])} >+</button>
 
-    <button 
-      className='scorecard-button'
-      onClick={()=>{
-        setEdit(!edit);
-        !!edit && setShowSettings(false);
-        }} >s</button>
+      <button 
+        disabled={!edit}
+        className='scorecard-button flex flex-row content-center items-center'
+        onClick={()=>{
+          const newTeams = teams.slice(0,-1)
+          setTeams([...newTeams])}} >-</button>
 
+      <button 
+        className='scorecard-button flex flex-row content-center items-center'
+        onClick={()=>{
+          setEdit(!edit);
+          !!edit && setShowSettings(false);
+          }} >s</button>
+    </div>
     {teams.map(team => <ScoreTile/>)}
   </div>)
 }
